@@ -6,7 +6,7 @@
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
-  <title>Anadir Contacto</title>
+  <title>Añadir Contacto</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,26 +15,29 @@
 </head>
 <body>
   <nav class="indigo" role="navigation">
-    <div class="nav-wrapper container center"><a id="logo-container" href="#" class="brand-logo">Anadir Contacto</a>
+    <div class="nav-wrapper container center"><a id="logo-container" href="#" class="brand-logo">Añadir Contacto</a>
       <ul class="right hide-on-med-and-down">
-        <li><a id="returnIndex">Volver</a></li>
+      	<button id="returnIndex" class="btn-large waves-effect waves-light indigo">Volver</button>
+        <!--<li><a id="returnIndex">Volver</a></li> -->
       </ul>
     </div>
   </nav>
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
-      <h1 class="header center orange-text">Starter Template</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-      </div>
-      <div class="row center">
-        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
-      </div>
-      <br><br>
-
-    </div>
-  </div>
+  	<div class="col">
+        <div class="center">
+        	<label for="lblfirstName">Nombre</label>
+        	<input id="firstName" type="text" min="1">            
+		</div>
+        <div class="center">
+        	<label for="lbllastName">Apellido</label>
+            <input id="lastName" type="text" min="1">            
+        </div>
+        <div class="center">
+			<label for="lblphoneNumber">Numero de Telefono</label>
+        	<input id="phoneNumber" type="number" min="9" max="9">  
+        	</br></br>
+        	<button id="btnSaveContact" class="btn-large waves-effect waves-light indigo">Guardar Contacto</button>          
+		</div>
+	</div>
 
 
   <!--  Scripts-->
