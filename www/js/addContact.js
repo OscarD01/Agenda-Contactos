@@ -7,6 +7,7 @@
 })(jQuery); // end of jQuery name space
 
 document.addEventListener('deviceready', onDeviceReady, false);
+var schedule = JSON.parse(localStorage.getItem("schedule"))
  
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
@@ -26,7 +27,27 @@ function returnIndex(){
 }
 
 function saveContact(){
-    var firstName = document.getElementById("firstName");
-    var lastName = document.getElementById("lastName");
+    var fname = document.getElementById("firstName");
+    var lname = document.getElementById("lastName");
     var phoneNumber = document.getElementById("phoneNumber");
+
+    if(fname.value.length != 0 && lname.value.length != 0 && phoneNumber.value.length != 0 ){
+    	if(phoneNumber.value.length == 9){
+    		schedule[phoneNumber.value] = {
+    			"fname": fname.value,
+    			"lname": lname.value
+    		}
+    	localStorage.setItem("schedule",JSON.stringify(schedule))
+
+        alert("Contacto añadido correctamente");
+
+        returnIndex();
+    	}
+    	else{
+    		alert("El numero de telefono tienen que ser de 9 numeros");
+    	}
+    }
+    else{
+    	alert("Rellena todos los campos");
+    }
 }
