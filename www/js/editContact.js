@@ -14,7 +14,9 @@ function onDeviceReady() {
 
     //var returnMenu = document.getElementById("btnBack").onclick = returnMenu;
     var btnBackIndex = document.getElementById("returnIndex").onclick = returnIndex;
-    var btnSaveContact = document.getElementById("btnSaveContact").onclick = saveContact;
+    var btneditContact = document.getElementById("btnSaveContact").onclick = editContact;
+
+    recivedata();
  
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     //location.href = "index.html";
@@ -26,7 +28,7 @@ function returnIndex(){
 	location.href = "index.html";
 }
 
-function saveContact(){
+function editContact(){
     var fname = document.getElementById("firstName");
     var lname = document.getElementById("lastName");
     var phoneNumber = document.getElementById("phoneNumber");
@@ -60,4 +62,8 @@ function saveContact(){
     else{
     	alert("Rellena todos los campos");
     }
+}
+
+function reciveData(){
+    // Codigo para recibir los datos del contacto seleccionado
 }

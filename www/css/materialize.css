@@ -4748,6 +4748,8 @@ small {
   background-color: #fff;
 }
 
+ul li { font-family: Arial, Sans-Serif }
+
 .card {
   position: relative;
   margin: 0.5rem 0 1rem 0;

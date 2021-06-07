@@ -13,7 +13,7 @@ var schedule;
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
 
-    if(JSON.parse(localStorage.getItem("schedule")) == undefined) {
+    if(JSON.parse(localStorage.getItem("schedule")) == undefined) { // Si el json no existe se crea uno por defecto y se guarda en el local storage
         schedule = {
             "644011136": {
                 "fname":"Oscar",
@@ -21,14 +21,14 @@ function onDeviceReady() {
             },
         } 
         localStorage.setItem("schedule",JSON.stringify(schedule))
-    } else {
+    } else {	// En el caso de que si exista se recoge del local storage y se guarda en schedule
 
     	console.log(schedule);
         schedule = JSON.parse(localStorage.getItem("schedule"))
         console.log(schedule);
     }
 
-    appendContacts()
+    appendContacts();
 
     var btnAddContacto = document.getElementById("btnAddContacto").onclick = openAddContacto;
  
@@ -36,14 +36,16 @@ function onDeviceReady() {
     //document.getElementById('deviceready').classList.add('ready');
 }
 
-function openAddContacto(){
+function openAddContacto(){ // Redirige a la pagina de anadir contactos
 	location.href = "addContact.html";
 }
 
-function appendContacts(){
-	for(x in schedule){
-		console.log("añadiendo contacto ")
-		$('#contacts').append('<li class="collection-item" phoneNumber="'+x+'"><div>'+schedule[x]["fname"]+' - '+x+'<button id="btnBorrar" class="btn-small waves-effect waves-light indigo">Borrar</button><button id="btnEditar" class="btn-small waves-effect waves-light indigo">Editar</button></div></li>');
-		
+function appendContacts(){ // Inserta los contactos en la lista mostrando el nombre, el numero y dos botones los cuales actualmente no hacen nada
+	for(key in schedule){ // aunque proximamente el de editar te llevara al editor de contactos y el de borrar te permitira borrar el contacto
+		$('#contacts').append('<li class="collection-item" style="background-color:grey; border:2px solid black; padding-top: 2px">'+schedule[key]["fname"]+' - '+key+'<button id="btnBorrar" class="right btn-small waves-effect waves-light indigo">Borrar</button><button id="btnEditar" class="right btn-small waves-effect waves-light indigo">Editar</button></li>');
 	}
+}
+
+function borrar(){
+	// Codigo para borrar el contacto seleccionado
 }
