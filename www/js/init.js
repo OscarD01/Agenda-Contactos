@@ -31,6 +31,7 @@ function onDeviceReady() {
     appendContacts();
 
     var btnAddContacto = document.getElementById("btnAddContacto").onclick = openAddContacto;
+    var btnDeleteAllContacts = document.getElementById("btnDeleteAllContacts").onclick = deleteAllContacts;
  
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     //document.getElementById('deviceready').classList.add('ready');
@@ -46,6 +47,15 @@ function appendContacts(){ // Inserta los contactos en la lista mostrando el nom
 	}
 }
 
-function borrar(){
-	// Codigo para borrar el contacto seleccionado
+function deleteAllContacts(){ //Borra todos los contactos y recarga la pagina
+	console.log("entro");
+	if(JSON.parse(localStorage.getItem("schedule")) == undefined) {
+		alert("No hay ningun contacto para ser borrado");
+	}
+	else{
+		localStorage.removeItem("schedule");
+		alert("Todos los contactos han sido eliminados");
+		console.log(schedule);
+		location.reload();
+	}
 }
